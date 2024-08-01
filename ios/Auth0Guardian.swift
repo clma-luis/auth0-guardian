@@ -17,13 +17,8 @@ class Auth0GuardianModule: NSObject {
     }
   }
 
-  @objc
-  func getHelloWorld(resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
-    do {
-      let message = "Hello, World!"
-      resolve(message)
-    } catch let error {
-      reject("ERROR_GETTING_MESSAGE", "Failed to get Hello World message", error)
-    }
+ @objc
+  func getHelloWorld() -> String {
+      return "Hello, World!"
   }
 }

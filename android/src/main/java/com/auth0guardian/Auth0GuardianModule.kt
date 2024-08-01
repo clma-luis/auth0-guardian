@@ -31,12 +31,7 @@ class Auth0GuardianModule(reactContext: ReactApplicationContext) : ReactContextB
       }
   }
 
-   fun getHelloWorld(promise: Promise) {
-        try {
-            val message = "Hello, World!"
-            promise.resolve(message)
-        } catch (e: Exception) {
-            promise.reject("ERROR_GETTING_MESSAGE", e)
-        }
+  fun getHelloWorld(): String {
+    return "Hello, World!"
     }
 }
