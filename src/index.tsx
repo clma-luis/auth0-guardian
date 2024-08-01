@@ -1,7 +1,11 @@
 import { NativeModules } from 'react-native';
 
-const { GuardianTotp } = NativeModules;
+const { Auth0GuardianModule } = NativeModules;
 
 export const getOTP = (secret: string): Promise<string> => {
-  return GuardianTotp.getOTP(secret);
+  return Auth0GuardianModule.getOTP(secret);
+};
+
+export const getHelloWorld = (): Promise<string> => {
+  return Auth0GuardianModule.getHelloWorld();
 };

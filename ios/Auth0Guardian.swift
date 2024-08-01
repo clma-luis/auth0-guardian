@@ -2,8 +2,8 @@ import Foundation
 import Guardian
 import React
 
-@objc(GuardianTotpModule)
-class GuardianTotpModule: NSObject {
+@objc(Auth0GuardianModule)
+class Auth0GuardianModule: NSObject {
 
   @objc
   func getOTP(_ secret: String, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
@@ -14,6 +14,16 @@ class GuardianTotpModule: NSObject {
       resolve(otp)
     } catch let error {
       reject("ERROR_GENERATING_OTP", "Failed to generate OTP", error)
+    }
+  }
+
+  @objc
+  func getHelloWorld(resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
+    do {
+      let message = "Hello, World!"
+      resolve(message)
+    } catch let error {
+      reject("ERROR_GETTING_MESSAGE", "Failed to get Hello World message", error)
     }
   }
 }

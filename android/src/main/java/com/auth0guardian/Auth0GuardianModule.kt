@@ -7,7 +7,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.Promise
 
-class GuardianTotpModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
+class Auth0GuardianModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
   companion object {
       private const val TOTP_LENGTH = 6
@@ -30,4 +30,13 @@ class GuardianTotpModule(reactContext: ReactApplicationContext) : ReactContextBa
           promise.reject("ERROR_GENERATING_OTP", e)
       }
   }
+
+   fun getHelloWorld(promise: Promise) {
+        try {
+            val message = "Hello, World!"
+            promise.resolve(message)
+        } catch (e: Exception) {
+            promise.reject("ERROR_GETTING_MESSAGE", e)
+        }
+    }
 }
