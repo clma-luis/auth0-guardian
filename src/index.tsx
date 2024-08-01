@@ -6,6 +6,6 @@ export const getOTP = (secret: string): Promise<string> => {
   return Auth0GuardianModule.getOTP(secret);
 };
 
-export const getHelloWorld = (): string => {
+export const getHelloWorld = (): Promise<string> => {
   return Auth0GuardianModule.getHelloWorld();
 };

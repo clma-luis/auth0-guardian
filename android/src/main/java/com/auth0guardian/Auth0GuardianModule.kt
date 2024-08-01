@@ -16,7 +16,7 @@ class Auth0GuardianModule(reactContext: ReactApplicationContext) : ReactContextB
   }
 
   override fun getName(): String {
-      return "GuardianTotp"
+      return "Auth0GuardianModule"
   }
 
   @ReactMethod
@@ -31,7 +31,12 @@ class Auth0GuardianModule(reactContext: ReactApplicationContext) : ReactContextB
       }
   }
 
-  fun getHelloWorld(): String {
-    return "Hello, World!"
+    @ReactMethod
+    fun getHelloWorld(promise: Promise) {
+      try {
+        promise.resolve("Hello, World!")
+      } catch (e: Exception) {
+        promise.reject("ERROR_GETTING_MESSAGE", e)
+      }
     }
 }
